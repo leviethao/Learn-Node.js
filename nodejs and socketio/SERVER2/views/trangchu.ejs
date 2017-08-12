@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>demo</title>
+	<script src="jquery.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script>
+		var socket = io("http://localhost:3000");
+	
+		socket.on("SERVER-SEND-COLOR", function (data) {
+			$("body").attr("bgColor", data);
+		});
+	
+		$(document).ready(function() {
+			$("#do").click(function() {
+				socket.emit("CLIENT-SEND-COLOR", "red");
+			});
+			
+			$("#xanh").click(function() {
+				socket.emit("CLIENT-SEND-COLOR", "blue");
+			});
+			
+			$("#vang").click(function() {
+				socket.emit("CLIENT-SEND-COLOR", "yellow");
+			});
+		});
+	</script>
+	
+	<style type="text/css">
+		#do, #xanh, #vang {
+			width: 300px;
+			height: 70px;
+		}
+		
+		#do {
+			background-color: red;
+		}
+		
+		#xanh {
+			background-color: blue;
+		}
+		
+		#vang {
+			background-color: yellow;
+		}
+	</style>
+  </head>
+  
+  <body>
+    <div id="do"></div>
+	<div id= "xanh"></div>
+	<div id= "vang"></div>
+  </body>
+</html>

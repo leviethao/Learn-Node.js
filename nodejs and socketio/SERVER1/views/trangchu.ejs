@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>demo</title>
+	<script src="jquery.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script>
+		var socket = io("http://localhost:3000");
+	
+		socket.on("Server-send-data", function (data) {
+			$("#noidung").append(data + ", ");
+		});
+	
+		$(document).ready(function() {
+			$("#mra").click(function () {
+				socket.emit("Client-send-data", "HELLO");
+			});
+		});
+	</script>
+  </head>
+  
+  <body>
+    <div id="mra">click send</div>
+	<div id="noidung"></div>
+  </body>
+</html>

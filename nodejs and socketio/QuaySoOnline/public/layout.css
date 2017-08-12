@@ -1,0 +1,25 @@
+#wrapper {
+	width: 650px;
+	margin: auto;
+}
+
+#information {
+	border: solid 1px gray;
+	margin: 10px;
+	padding: 10px;
+	text-align: center;
+}
+
+#listUsers {
+	text-align: center;
+}
+
+.hocvien {
+	border-bottom: solid 1px #eaeff7;
+	padding: 10px;
+}
+
+.hang1 span {
+	color: blue;
+	font-weight: bold;
+}
